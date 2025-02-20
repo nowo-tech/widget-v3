@@ -1,0 +1,31 @@
+name: Deploy Static HTML to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Deploy to GitHub Pages
+        run: |
+          git checkout --orphan gh-pages
+          git rm -rf .
+          cp -r * .github .. # Copia todos los archivos excepto .git
+          rm -rf .github # No necesitamos el workflow en gh-pages
+          git add .
+          git commit -m "Deploy static site to GitHub Pages"
+          git push --force origin gh-pages
