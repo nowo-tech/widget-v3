@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/styles.css">
+  <!--<script src="/resources.js"></script> -->
+  <!--<script src="/pages.js"></script> -->
+  <title>Vite + Vue + TS</title>
+  <!-- <script src="./nowoWidget.v3.js"></script> -->
+  <style>
+    .navbar-collapse {
+      max-height: 60vh; /* Reduce la altura máxima al 60% de la pantalla */
+      overflow-y: auto; /* Permite desplazamiento vertical */
+      scrollbar-width: thin; /* Hace el scrollbar más delgado en Firefox */
+      scrollbar-color: rgba(255, 255, 255, 0.5) transparent; /* Color del thumb y track en Firefox */
+    }
+
+    /* Estilos del scrollbar para WebKit (Chrome, Edge, Safari) */
+    .navbar-collapse::-webkit-scrollbar {
+      width: 6px; /* Ancho más delgado */
+    }
+
+    .navbar-collapse::-webkit-scrollbar-track {
+      background: transparent; /* Fondo del track */
+    }
+
+    .navbar-collapse::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.5); /* Color del thumb */
+      border-radius: 10px; /* Bordes redondeados */
+    }
+
+    .navbar-collapse::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 255, 255, 0.8); /* Color más visible al pasar el mouse */
+    }
+  </style>
+  <!-- -->
+</head>
+
+<body style="display: none;">
+  <!-- Navigation -->
+  <nav class="navbar navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Bootstrap Hamburger Menu</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <!-- to include menu -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <header class="masthead text-white p-0">
+    <div class="overlay"></div>
+    <div class="">
+      <div class="row">
+        <div class="col-xl-12 mx-auto" style="padding:75px">
+          <h2 id="title"></h2>
+          <h3 id="configuration"></h2>
+          <nowo-widget
+            data-src="https://app.aplicacion-nowo.tech/widget?widget_token=2d566a79-5717-4f3c-a2f2-f647289904b9"></nowo-widget>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!--<nowo-widget data-src="http://localhost:5173/widget?widget_token=e4f76ad7-fe9d-40ae-9c2b-a46308d0a017"></nowo-widget>-->
+  <script type="module" src="https://api.nowo.tech/build_nv/nowoWidget.v2.js"></script>
+</body>
+
+</html>
