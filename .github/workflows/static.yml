@@ -18,8 +18,7 @@ jobs:
       - name: Save static files before switching branch
         run: |
           mkdir temp_deploy
-          cp -r * temp_deploy
-          cp -r .github temp_deploy
+          cp -r $(ls -A | grep -v 'temp_deploy') temp_deploy/
 
       - name: Switch to gh-pages branch
         run: |
@@ -35,5 +34,6 @@ jobs:
           git add .
           git commit -m "Deploy static site to GitHub Pages" || echo "No changes to commit"
           git push --force origin gh-pages
+
 
 
