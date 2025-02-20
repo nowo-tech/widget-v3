@@ -1,4 +1,4 @@
-name: Deploy Static HTML to GitHub Pages
+name: Deploy Static Site to GitHub Pages
 
 on:
   push:
@@ -22,10 +22,18 @@ jobs:
 
       - name: Deploy to GitHub Pages
         run: |
+          # Crear (o cambiar a) la rama gh-pages sin historial previo
           git checkout --orphan gh-pages
+          
+          # Eliminar archivos antiguos de la rama gh-pages
           git rm -rf .
+          
+          # Copiar solo los archivos estáticos necesarios
           cp -r * .github .. # Copia todos los archivos excepto .git
-          rm -rf .github # No necesitamos el workflow en gh-pages
+          rm -rf .github # Eliminamos la carpeta del workflow
+
+          # Confirmar y subir cambios a gh-pages
           git add .
           git commit -m "Deploy static site to GitHub Pages"
           git push --force origin gh-pages
+
